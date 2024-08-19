@@ -23,7 +23,7 @@ do
                                         --num_fewshot $examples \
                                         --output_path "output/$model" \
                                         --log_samples \
-                                        --wandb_args project=uhura,name="$lan"_arc_challenge
+                                        --wandb_args project=uhura,name="$lan"_arc_challenge_"$model"_"$temp"
                         done
                 done
         done
