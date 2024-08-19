@@ -24,13 +24,20 @@ def doc_to_target(doc):
 
 def doc_to_text(doc):
     choices = ast.literal_eval(doc['choices'])['text']
+
+    print(doc)
+    print(choices)
+    print(len(choices))
     
-    q = "Question: {question}\n\n"
+    q = """Question: {question}\n\n"""
     choice_labels = ['A', 'B', 'C', 'D']
     
+    # print(choices,choice_labels)
     for i, choice in enumerate(choices):
+        if i > 4:
+            break
         q += f"{choice_labels[i]}: {choice}\n"
     
     q += "\nAnswer:"
     
-    return q.format(question=doc['question'])
+    return q.format(question=doc['question'].replace('{','{\{').replace('}','}\}'))
