@@ -227,16 +227,18 @@ def doc_to_text_t1(doc):
     return Q.format(question=question,a=a,b=b,c=c,d=d)
 
 def doc_to_text_t2(doc): 
-    Q = """Answer the following question by choosing from given choices
-    
-        {question} \n 
+    Q = """Given a question and multiple-choice answers, return the letter corresponding to the correct answer.
 
-        A: {a}\n
-        B: {b}\n
-        C: {c}\n
-        D: {d}\n
+            Question: {question}
 
-        Answer:"""
+            Options:
+            A: {a}
+            B: {b}
+            C: {c}
+            D: {d}
+
+            Correct Answer:
+            """
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
     question=doc['question']
@@ -248,38 +250,16 @@ def doc_to_text_t2(doc):
     return Q.format(question=question,a=a,b=b,c=c,d=d)
 
 def doc_to_text_t3(doc): 
-    Q = """Answer the following question by choosing from given choices
-    
-        {question} \n 
+    Q = """Pick the most correct option to answer the following question.
+            Question: {question}
 
-        A: {a}\n
-        B: {b}\n
-        C: {c}\n
-        D: {d}\n
+            Options:
+            A: {a}
+            B: {b}
+            C: {c}
+            D: {d}
 
-        Answer:"""
-    
-    # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
-    
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
-
-
-def doc_to_text_t4(doc): 
-    Q = """Answer the following question by choosing from given choices
-    
-        {question} \n 
-
-        A: {a}\n
-        B: {b}\n
-        C: {c}\n
-        D: {d}\n
-
-        Answer:"""
+            Correct Answer:"""
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
     question=doc['question']
@@ -292,16 +272,39 @@ def doc_to_text_t4(doc):
 
 
 def doc_to_text_t4(doc): 
-    Q = """Answer the following question by choosing from given choices
+    Q = """Here's a problem to solve: {{question} 
+            Among the 4 following options, which is the correct answer?
+
+            Options:
+            A: {a}
+            B: {b}
+            C: {c}
+            D: {d}
+
+            Correct Answer:"""
     
-        {question} \n 
+    # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
+    question=doc['question']
+    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
+    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
+    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
+    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    
+    return Q.format(question=question,a=a,b=b,c=c,d=d)
 
-        A: {a}\n
-        B: {b}\n
-        C: {c}\n
-        D: {d}\n
 
-        Answer:"""
+def doc_to_text_t4(doc): 
+    Q = """I gave my students this multiple choice question: 
+            {question} 
+            Only one answer is correct among these 4 choices:
+
+            Options:
+            A: {a}
+            B: {b}
+            C: {c}
+            D: {d}
+
+            Could you tell me which one is correct?"""
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
     question=doc['question']
