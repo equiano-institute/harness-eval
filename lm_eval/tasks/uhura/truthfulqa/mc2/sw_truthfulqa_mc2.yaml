@@ -1,4 +1,4 @@
-include: ../mc1/sw_truthfulqa_mc1.yaml
+include: ../mc1_t1/sw_truthfulqa_mc1_t1.yaml
 task: sw_truthfulqa_mc2
 doc_to_target: 0
 doc_to_choice: !function ../utils.doc_to_choice_mc2
