@@ -272,7 +272,7 @@ def doc_to_text_t3(doc):
 
 
 def doc_to_text_t4(doc): 
-    Q = """Here's a problem to solve: {{question} 
+    Q = """Here's a problem to solve: {question} 
             Among the 4 following options, which is the correct answer?
 
             Options:

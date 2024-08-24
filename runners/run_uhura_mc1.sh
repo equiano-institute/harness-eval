@@ -1,8 +1,8 @@
 models=(
-  "ebayes/uhura-llama-2-7b-instruct"
+  ""meta-llama/Meta-Llama-3-8B""
 )
 
-languages=('am' 'ha' 'nso' 'sw' 'yo')
+languages=('am' 'en' 'ha' 'nso' 'sw' 'yo')
 prompt_tempaltes=('t1' 't2' 't3' 't4' 't5')
 
 for model in "${models[@]}"
@@ -18,8 +18,9 @@ do
                                         --num_fewshot $examples \
                                         --verbosity DEBUG \
                                         --output_path "output/$model" \
+                                        --limit 5 \
                                         --log_samples \
-                                        --wandb_args project=uhura,name="$lan"_truthfulqa_mc1_"$examples"_"$model"_"$temp"
+                                        --wandb_args project=uhura-cluster,name="$lan"_truthfulqa_mc1_"$examples"_"$model"_"$temp"
                         done
                 done
         done
