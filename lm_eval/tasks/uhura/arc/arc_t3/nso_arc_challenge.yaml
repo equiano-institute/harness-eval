@@ -1,0 +1,3 @@
+include: arc_easy.yaml
+task: nso_arc_challenge_t3
+dataset_name: nso_multiple_choice
