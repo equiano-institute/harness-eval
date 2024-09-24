@@ -1,3 +1,0 @@
-include: arc_easy.yaml
-task: ha_arc_challenge_t1
-dataset_name: ha_multiple_choice

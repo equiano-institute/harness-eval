@@ -1,3 +1,0 @@
-include: arc_easy.yaml
-task: sw_arc_challenge_t1
-dataset_name: sw_multiple_choice
