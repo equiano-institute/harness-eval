@@ -18,13 +18,13 @@ def doc_to_text(doc):
     
     q = """Answer the following question by choosing from given choices
     
-        {question} \n """
+        {question} \n """.format(question=doc['question'])
     choice_labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     
     # print(choices,choice_labels)
     for i, choice in enumerate(choices):
         q += f"\n{choice_labels[i]}: {choice}\n"
     
-    q += "\nAnswer:"
+    q += "\n Answer:"
     
-    return q.format(question=doc['question'].replace('{','{\{').replace('}','}\}'))
+    return q

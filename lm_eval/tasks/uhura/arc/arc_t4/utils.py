@@ -19,7 +19,7 @@ def doc_to_text(doc):
     q = """Here's a problem to solve: {question} 
             Among the 4 following options, which is the correct answer?
 
-            Options: \n"""
+            Options: \n""".format(question=doc['question'])
     choice_labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     
     # print(choices,choice_labels)
@@ -28,4 +28,4 @@ def doc_to_text(doc):
     
     q += "\n Correct Answer:"
     
-    return q.format(question=doc['question'].replace('{','{\{').replace('}','}\}'))
+    return q
