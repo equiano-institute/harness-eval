@@ -12,9 +12,9 @@ def doc_to_target(doc):
 def doc_to_text(doc):
     choices = ast.literal_eval(doc['choices'])['text']
 
-    print(doc)
-    print(choices)
-    print(len(choices))
+    # print(doc)
+    # print(choices)
+    # print(len(choices))
     
     q = """Given a question and multiple-choice answers, return the letter corresponding to the correct answer.
 

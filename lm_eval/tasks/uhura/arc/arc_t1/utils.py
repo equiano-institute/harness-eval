@@ -12,9 +12,9 @@ def doc_to_target(doc):
 def doc_to_text(doc):
     choices = doc['choices']['text']
 
-    print(doc)
-    print(choices)
-    print(len(choices))
+    # print(doc)
+    # print(choices)
+    # print(len(choices))
     
     q = """Answer the following question by choosing from given choices
     
