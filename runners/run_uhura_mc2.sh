@@ -1,5 +1,5 @@
 models=(
-  "meta-llama/Meta-Llama-3-8B"
+  "qwen2-0.5b-instruct"
 )
 
 languages=('am') # 'ha' 'sw' 'yo')
@@ -10,7 +10,7 @@ do
 
             echo "$lan"_truthfulqa_mc2
             python3 -m lm_eval --model hf \
-                    --model_args pretrained=$model,parallelize=True  \
+                    --model_args pretrained=$model,parallelize=True,dtype=bfloat16  \
                     --tasks "$lan"_truthfulqa_mc2   \
                     --batch_size 1 \
                     --verbosity DEBUG \
