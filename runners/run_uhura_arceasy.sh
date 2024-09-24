@@ -1,9 +1,5 @@
 models=(
   "meta-llama/Meta-Llama-3-8B-Instruct"
-  "meta-llama/Meta-Llama-3-8B"
-  "meta-llama/Meta-Llama-3.1-8B"
-  "meta-llama/Meta-Llama-3.1-8B-Instruct"
-  "LLaMAX/LLaMAX3-8B"
 )
 
 
