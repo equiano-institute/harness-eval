@@ -1,0 +1,6 @@
+tag:
+  - uhura_truthfulqa
+task: ha_truthfulqa_gen_t5
+dataset_path: ebayes/uhura-truthfulqa-clean
+dataset_name: ha_generation
+include: common_yaml

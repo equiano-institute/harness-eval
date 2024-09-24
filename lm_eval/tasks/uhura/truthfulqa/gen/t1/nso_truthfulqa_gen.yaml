@@ -1,0 +1,6 @@
+tag:
+  - uhura_truthfulqa
+task: nso_truthfulqa_gen_t1
+dataset_path: ebayes/uhura-truthfulqa-clean
+dataset_name: nso_generation
+include: common_yaml
