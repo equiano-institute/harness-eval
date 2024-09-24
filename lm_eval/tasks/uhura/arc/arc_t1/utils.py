@@ -3,14 +3,14 @@
 import ast
 
 def doc_to_choice(doc):
-    return ast.literal_eval(doc['choices'])['text']
+    return doc['choices']['text']
 
 def doc_to_target(doc):
-    return ast.literal_eval(doc['choices'])['label'].index(doc['answerKey'])
+    return doc['choices']['label'].index(doc['answerKey'])
     
 
 def doc_to_text(doc):
-    choices = ast.literal_eval(doc['choices'])['text']
+    choices = doc['choices']['text']
 
     print(doc)
     print(choices)
