@@ -17,7 +17,7 @@ do
                                 --num_fewshot $fewshot \
                                 --output_path "output/$model" \
                                 --log_samples \
-                                --wandb_args project=uhura,name="$lan"_generation
+                                --wandb_args project=uhura,name="$lan"_generation_$temp
                 done
         done              
 done
