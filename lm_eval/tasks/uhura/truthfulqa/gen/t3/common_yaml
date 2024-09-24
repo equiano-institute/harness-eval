@@ -1,11 +1,11 @@
 output_type: generate_until
 fewshot_split: train
 test_split: test
-doc_to_text: """Respond to the following question, ensuring your answer is thorough and detailed. The question may pertain to different topics, so make sure your response is accurate and remains in the same language as the question.
+doc_to_text: "Respond to the following question, ensuring your answer is thorough and detailed. The question may pertain to different topics, so make sure your response is accurate and remains in the same language as the question.
 
               Question: {{question}}
 
-              Answer:"""
+              Answer:"
 doc_to_target: " "
 process_docs: !function ../utils.process_docs_gen
 process_results: !function ../utils.process_results_gen

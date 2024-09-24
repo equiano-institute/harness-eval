@@ -1,11 +1,11 @@
 output_type: generate_until
 fewshot_split: train
 test_split: test
-doc_to_text: """Carefully read the question below, which may address diverse subjects. Craft a thorough and thoughtful response, ensuring you answer in the same language as the question.
+doc_to_text: "Carefully read the question below, which may address diverse subjects. Craft a thorough and thoughtful response, ensuring you answer in the same language as the question.
 
               Topic: {{question}}
 
-              Your Response:"""
+              Your Response:"
 doc_to_target: " "
 process_docs: !function ../utils.process_docs_gen
 process_results: !function ../utils.process_results_gen
