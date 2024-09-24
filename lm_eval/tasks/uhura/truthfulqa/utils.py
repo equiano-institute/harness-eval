@@ -59,6 +59,7 @@ def preprocess_function(examples):
     }
 
 def process_results_gen(doc, results):
+    print(results)
     completion = results[0]
     true_refs, false_refs = doc["correct_answers"], doc["incorrect_answers"]
     all_refs = true_refs + false_refs
