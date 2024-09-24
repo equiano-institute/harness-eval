@@ -7,8 +7,8 @@ doc_to_text: "Carefully read the question below, which may address diverse subje
 
               Your Response:"
 doc_to_target: " "
-process_docs: !function ../utils.process_docs_gen
-process_results: !function ../utils.process_results_gen
+process_docs: !function ../../utils.process_docs_gen
+process_results: !function ../../utils.process_results_gen
 should_decontaminate: True
 doc_to_decontamination_query: question
 metric_list:

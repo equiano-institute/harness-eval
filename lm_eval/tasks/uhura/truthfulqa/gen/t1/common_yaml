@@ -3,8 +3,8 @@ fewshot_split: train
 test_split: test
 doc_to_text: "Answer the following question: {{question}}"
 doc_to_target: " "
-process_docs: !function ../utils.process_docs_gen
-process_results: !function ../utils.process_results_gen
+process_docs: !function ../../utils.process_docs_gen
+process_results: !function ../../utils.process_results_gen
 should_decontaminate: True
 doc_to_decontamination_query: question
 metric_list:
