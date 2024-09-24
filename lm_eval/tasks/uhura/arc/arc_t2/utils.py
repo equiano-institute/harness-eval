@@ -29,4 +29,4 @@ def doc_to_text(doc):
     
     q += "\n Correct Answer:"
     
-    return q.format()
+    return q
