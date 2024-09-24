@@ -1,0 +1,15 @@
+tag:
+  - uhura_truthfulqa
+dataset_path: ebayes/uhura-truthfulqa-clean
+output_type: multiple_choice
+fewshot_split: train
+test_split: test
+doc_to_text: !function ../../utils.doc_to_text_t1
+doc_to_target: !function ../../utils.doc_to_target_mc1
+doc_to_choice:  !function ../../utils.doc_to_choice_mc1
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 2.0

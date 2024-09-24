@@ -1,0 +1,3 @@
+task: sw_truthfulqa_mc2_t1
+dataset_name: sw_multiple_choice
+include: common_yaml

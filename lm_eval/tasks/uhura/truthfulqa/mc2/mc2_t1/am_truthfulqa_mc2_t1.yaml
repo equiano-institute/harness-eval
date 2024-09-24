@@ -1,0 +1,3 @@
+task: am_truthfulqa_mc2_t1
+dataset_name: am_multiple_choice
+include: common_yaml

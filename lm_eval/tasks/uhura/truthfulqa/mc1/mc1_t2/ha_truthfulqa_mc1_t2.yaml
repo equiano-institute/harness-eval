@@ -1,0 +1,4 @@
+task: ha_truthfulqa_mc1_t2
+dataset_name: ha_multiple_choice
+include: common_yaml
+
