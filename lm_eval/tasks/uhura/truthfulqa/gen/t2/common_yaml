@@ -7,7 +7,7 @@ doc_to_text: "Please answer the following question.
                Question: {{question}}
                
                Answer: "
-doc_to_target: " "
+doc_to_target: "{{best_answer}}"
 process_docs: !function ../../utils.process_docs_gen
 process_results: !function ../../utils.process_results_gen
 should_decontaminate: True

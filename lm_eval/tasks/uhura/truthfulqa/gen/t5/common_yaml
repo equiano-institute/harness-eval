@@ -6,7 +6,7 @@ doc_to_text: "Carefully read the question below, which may address diverse subje
               Topic: {{question}}
 
               Your Response:"
-doc_to_target: " "
+doc_to_target: "{{best_answer}}"
 process_docs: !function ../../utils.process_docs_gen
 process_results: !function ../../utils.process_results_gen
 should_decontaminate: True
