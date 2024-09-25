@@ -1,27 +1,24 @@
 models=(
   "meta-llama/Meta-Llama-3-8B-Instruct"
-  "meta-llama/Meta-Llama-3-8B"
 )
 
-languages=('en' 'am'  'ha' 'nso' 'sw' 'yo')
+
 prompt_tempaltes=('t1' 't2' 't3' 't4' 't5')
 
 for model in "${models[@]}"
 do
-        for lan in "${languages[@]}"; do
-                for examples in 0 5; do
-                        for temp in "${prompt_tempaltes[@]}"; do
-                                echo "$lan"_truthfulqa_mc1_$temp
-                                python3 -m lm_eval --model hf \
-                                        --model_args pretrained=$model,parallelize=True  \
-                                        --tasks "$lan"_truthfulqa_mc1_$temp   \
-                                        --batch_size 1 \
-                                        --num_fewshot $examples \
-                                        --verbosity DEBUG \
-                                        --output_path "output/$model" \
-                                        --log_samples \
-                                        --wandb_args project=uhura-cluster,name="$lan"_truthfulqa_mc1_"$examples"_"$model"_"$temp"
-                        done
+        for examples in 0 5 ; do
+                for temp in "${prompt_tempaltes[@]}"; do
+                        echo "$lan"_arc_challenge
+                        python3 -m lm_eval --model hf \
+                                --model_args pretrained=$model,parallelize=True  \
+                                --tasks am_truthfulqa_mc1_$temp,en_truthfulqa_mc1_$temp,ha_truthfulqa_mc1_$temp,nso_truthfulqa_mc1_$temp,sw_truthfulqa_mc1_$temp,yo_truthfulqa_mc1_$temp   \
+                                --batch_size 1 \
+                                --verbosity DEBUG \
+                                --num_fewshot $examples \
+                                --output_path "output/$model" \
+                                --log_samples \
+                                --wandb_args project=uhura,name=arc_challenge_"$model"_"$temp"_"$examples"
                 done
         done
                      
