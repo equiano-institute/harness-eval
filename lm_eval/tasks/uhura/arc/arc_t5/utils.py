@@ -16,17 +16,16 @@ def doc_to_text(doc):
     # print(choices)
     # print(len(choices))
     
-    q = """I gave my students this multiple choice question: 
-        {{question}} 
-        Only one answer is correct among these 4 choices:
+    q = """You are a highly knowledgeable and intelligent artificial intelligence model answers multiple-choice questions :
 
-        Options: \n""".format(question=doc['question'])
+        Question: '''{question}'''
+        Choices: \n""".format(question=doc['question'])
     choice_labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
     
     # print(choices,choice_labels)
     for i, choice in enumerate(choices):
         q += f"\n{choice_labels[i]}: {choice}\n"
     
-    q += "\n Could you tell me which one is correct?"
+    q += "\n Answer: "
     
     return q
