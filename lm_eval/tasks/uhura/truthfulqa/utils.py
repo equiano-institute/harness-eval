@@ -189,42 +189,46 @@ def doc_to_text(doc):
     
         {question} \n 
 
-        A: {a}\n
-        B: {b}\n
-        C: {c}\n
-        D: {d}\n
+        \n\n{choices}
 
         Answer:"""
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    # Extract question
+    question = doc['question']
     
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
+    # Prepare choices dynamically
+    choices = doc['mc1_targets']['choices']
+    formatted_choices = ""
+    
+    # Loop through available choices and assign letters (A, B, C, ...)
+    for i, choice in enumerate(choices):
+        formatted_choices += f"{chr(65 + i)}: {choice}\n"  # chr(65) is 'A', chr(66) is 'B', and so on
+    
+    return Q.format(question=question, choices=formatted_choices)
 
 def doc_to_text_t1(doc): 
     Q = """Answer the following question by choosing from given choices
     
         {question} \n 
 
-        A: {a}\n
-        B: {b}\n
-        C: {c}\n
-        D: {d}\n
+        {choices}
 
         Answer:"""
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    # Extract question
+    question = doc['question']
     
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
+    # Prepare choices dynamically
+    choices = doc['mc1_targets']['choices']
+    formatted_choices = ""
+    
+    # Loop through available choices and assign letters (A, B, C, ...)
+    for i, choice in enumerate(choices):
+        formatted_choices += f"{chr(65 + i)}: {choice}\n"  # chr(65) is 'A', chr(66) is 'B', and so on
+    
+    return Q.format(question=question, choices=formatted_choices)
 
 def doc_to_text_t2(doc): 
     Q = """Given a question and multiple-choice answers, return the letter corresponding to the correct answer.
@@ -232,64 +236,65 @@ def doc_to_text_t2(doc):
             Question: {question}
 
             Options:
-            A: {a}
-            B: {b}
-            C: {c}
-            D: {d}
+            {choices}
 
-            Correct Answer:
-            """
+            Answer:"""
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    question = doc['question']
+        
+    # Prepare choices dynamically
+    choices = doc['mc1_targets']['choices']
+    formatted_choices = ""
     
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
+    # Loop through available choices and assign letters (A, B, C, ...)
+    for i, choice in enumerate(choices):
+        formatted_choices += f"{chr(65 + i)}: {choice}\n"  # chr(65) is 'A', chr(66) is 'B', and so on
+    
+    return Q.format(question=question, choices=formatted_choices)
 
 def doc_to_text_t3(doc): 
     Q = """Pick the most correct option to answer the following question.
             Question: {question}
 
             Options:
-            A: {a}
-            B: {b}
-            C: {c}
-            D: {d}
+           {choices}
 
             Correct Answer:"""
     
-    # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    question = doc['question']
     
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
+    # Prepare choices dynamically
+    choices = doc['mc1_targets']['choices']
+    formatted_choices = ""
+    
+    # Loop through available choices and assign letters (A, B, C, ...)
+    for i, choice in enumerate(choices):
+        formatted_choices += f"{chr(65 + i)}: {choice}\n"  # chr(65) is 'A', chr(66) is 'B', and so on
+    
+    return Q.format(question=question, choices=formatted_choices)
 
 def doc_to_text_t4(doc): 
     Q = """Here's a problem to solve: {question} 
             Among the 4 following options, which is the correct answer?
 
             Options:
-            A: {a}
-            B: {b}
-            C: {c}
-            D: {d}
+            {choices}
 
             Correct Answer:"""
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    question = doc['question']
     
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
+    # Prepare choices dynamically
+    choices = doc['mc1_targets']['choices']
+    formatted_choices = ""
+    
+    # Loop through available choices and assign letters (A, B, C, ...)
+    for i, choice in enumerate(choices):
+        formatted_choices += f"{chr(65 + i)}: {choice}\n"  # chr(65) is 'A', chr(66) is 'B', and so on
+    
+    return Q.format(question=question, choices=formatted_choices)
 
 def doc_to_text_t5(doc): 
     Q = """You are a highly knowledgeable and intelligent artificial intelligence model answers multiple-choice questions :
@@ -297,18 +302,20 @@ def doc_to_text_t5(doc):
             Question: '''{question}'''
 
             Choices:
-            A: {a}
-            B: {b}
-            C: {c}
-            D: {d}
+            {choices}
 
             Answer: """
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
-    question=doc['question']
-    a=doc['mc1_targets']['choices'][0]if len(doc['mc1_targets']['choices']) >=1 else ""
-    b=doc['mc1_targets']['choices'][1]if len(doc['mc1_targets']['choices']) >=2 else ""
-    c=doc['mc1_targets']['choices'][2] if len(doc['mc1_targets']['choices']) >=3 else ""
-    d=doc['mc1_targets']['choices'][3] if len(doc['mc1_targets']['choices']) >=4 else ""
+    # Extract question
+    question = doc['question']
     
-    return Q.format(question=question,a=a,b=b,c=c,d=d)
+    # Prepare choices dynamically
+    choices = doc['mc1_targets']['choices']
+    formatted_choices = ""
+    
+    # Loop through available choices and assign letters (A, B, C, ...)
+    for i, choice in enumerate(choices):
+        formatted_choices += f"{chr(65 + i)}: {choice}\n"  # chr(65) is 'A', chr(66) is 'B', and so on
+    
+    return Q.format(question=question, choices=formatted_choices)
