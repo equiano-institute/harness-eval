@@ -1,4 +1,4 @@
-task: ha_truthfulqa_mc1_t4
+task: ha_truthfulqa_mc1_t5
 dataset_name: ha_multiple_choice
 include: common_yaml
 
