@@ -292,17 +292,17 @@ def doc_to_text_t4(doc):
     return Q.format(question=question,a=a,b=b,c=c,d=d)
 
 def doc_to_text_t5(doc): 
-    Q = """I gave my students this multiple choice question: 
-            {question} 
-            Only one answer is correct among these 4 choices:
+    Q = """You are a highly knowledgeable and intelligent artificial intelligence model answers multiple-choice questions :
 
-            Options:
+            Question: '''{question}'''
+
+            Choices:
             A: {a}
             B: {b}
             C: {c}
             D: {d}
 
-            Could you tell me which one is correct?"""
+            Answer: """
     
     # print(doc['mc1_targets']['choices'][0],doc['mc1_targets']['choices'],len(doc['mc1_targets']['choices']))
     question=doc['question']
